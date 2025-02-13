@@ -1,15 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    reactStrictMode: true,
+    transpilePackages: ["next-themes"],
     images: {
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'prompt-stack.sshh.io',
+          hostname: 'sparkstack.app',
           pathname: '/api/mocks/images/**',
         },
         {
           protocol: 'https',
-          hostname: 'sparkstack.app',
+          hostname: 'prompt-stack.sshh.io',
           pathname: '/api/mocks/images/**',
         },
         {
@@ -41,6 +43,7 @@ const nextConfig = {
           hostname: '*.imgur.com',
         },
       ],
+      domains: ['sparkstack.app'],
     },
   
     typescript: {
@@ -50,8 +53,6 @@ const nextConfig = {
     eslint: {
       ignoreDuringBuilds: process.env.NODE_ENV === 'development',
     },
-  
-    reactStrictMode: process.env.NODE_ENV === 'development' ? false : true,
   
     experimental: {
       largePageDataBytes: 128 * 100000,
